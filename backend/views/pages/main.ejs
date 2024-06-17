@@ -1,0 +1,63 @@
+<% layout('layouts/boilerplate') %>
+<link href="assets/styles.css" rel="stylesheet" />
+
+    <header class="masthead min-vh-80 bg-primary text-white text-center">
+        <div class="container d-flex align-items-center justify-content-center flex-column">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1 class="masthead-heading text-uppercase mb-0">Welcome <%= name %>
+            </h1>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Masthead Subheading-->
+            <div class="d-flex">
+                <a href="uploader/<%=object%>" class="btn btn-danger btn-lg m-5">Upload Documents</a>
+                <a href="recieved/<%=object%>" class="btn btn-danger btn-lg m-5">Received Documents</a>
+            </div>
+        </div>
+    </header>
+
+<section class="container min-vh-50 min-vh-50">
+        <br>
+        <br>
+        <br>
+
+        <h1 class="text-center text-uppercase">Your Uploads</h1>
+        <br>
+        <br>
+
+
+        <table class="table mb-5 css-serial">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Document Name</th>
+                    <th scope="col">Action</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let i=0;i<fileName.length;i++) { %>
+                    <tr>
+                        <td></td>
+                        <td><a href="/show/<%= file[i] %> ">
+                                <%= fileName[i] %>
+                            </a></td>
+                        <td>
+                            <form action="/<%= email %>/share/<%= file[i] %>">
+                                <button class="btn btn-primary">Share</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+
+    </section>

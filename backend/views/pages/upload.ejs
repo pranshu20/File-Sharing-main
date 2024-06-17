@@ -1,0 +1,37 @@
+<% layout('layouts/boilerplate') %>
+<link rel="stylesheet" type="text/css" href="/assets/styles.css" />
+<header class="masthead min-vh-80 bg-info text-center">
+  <div
+    class="container d-flex align-items-center justify-content-center flex-column"
+  >
+    <br />
+    <br />
+    <br />
+    <h1 class="masthead-heading text-uppercase mb-0">Upload Files</h1>
+    <!-- Icon Divider-->
+    <div class="divider-custom divider-light">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+      <div class="divider-custom-line"></div>
+    </div>
+    <!-- Masthead Subheading-->
+
+    <form
+      action="/uploadfile/<%=ObjectId%>"
+      enctype="multipart/form-data"
+      method="POST"
+    >
+      <div class="mb-3">
+        <label for="formFile" class="form-label"></label>
+        <input
+          class="form-control"
+          accept="image/*"
+          name="myImage"
+          type="file"
+          id="formFile"
+        />
+      </div>
+      <input class="btn btn-danger" type="submit" value="Upload Photo" />
+    </form>
+  </div>
+</header>
